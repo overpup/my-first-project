@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+import java.util.*;
+
+public class masiv {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Введите кол-во сотрудников: ");
+        int n = sc.nextInt();
+
+        String[] names = new String[n];
+        int[] tasks = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Имя сот: ");
+            names[i] = sc.next();
+            System.out.print("Задач выполнено: ");
+            tasks[i] = sc.nextInt();
+        }
+
+        int maxTasks = tasks[0];
+        String bestName = names[0];
+        for (int i = 1; i < n; i++) {
+            if (tasks[i] > maxTasks) {
+                maxTasks = tasks[i];
+                bestName = names[i];
+            }
+        }
+        System.out.println("Самый продуктивный сотрудник: " +
+                bestName + " (" + maxTasks + " задач)");
+    }
+}
